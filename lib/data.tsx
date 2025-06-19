@@ -10,7 +10,7 @@ export const PORTFOLIO_DATA = {
     locationLink: "https://www.google.com/maps/place/dhaka",
     email: "salmafarihaaktar@gmail.com",
     phone: "+880 1732853860",
-    website: "https://salma-fariha-frontend-portfolio.vercel.app/",
+    website: "https://fariha-portfolio-frontend.vercel.app/",
     avatarUrl: "/fariha-pic.png?height=192&width=192",
     description:
       "I build exceptional and accessible digital experiences for the web. Focused on creating clean, user-friendly interfaces with modern technologies.",

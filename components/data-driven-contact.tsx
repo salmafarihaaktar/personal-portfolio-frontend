@@ -37,25 +37,25 @@ export default function DataDrivenContact() {
       try {
     // 1. Send email to admin
     await emailjs.send(
-      "service_eqjo0j5",
-      "template_tj69ehy",
+      "service_zhhfkke",
+      "template_0ougmgx",
       {
         name: formData.name,
         email: formData.email,
         message: formData.message,
       },
-      "tXy1-9z4L2Fc3g2t2"
+      "4Qo0Z7ZYdQd-r2hZ9"
     )
 
     // 2. Send auto-reply to user
     await emailjs.send(
-      "service_eqjo0j5",
-      "template_axq7m7o",
+      "service_zhhfkke",
+      "template_4yimta3",
       {
         name: formData.name,
         email: formData.email,
       },
-      "tXy1-9z4L2Fc3g2t2"
+      "4Qo0Z7ZYdQd-r2hZ9"
     )
 
     setFormStatus("success")
