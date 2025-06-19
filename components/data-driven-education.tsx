@@ -55,12 +55,12 @@ export default function DataDrivenEducation() {
                         </div>
 
                         <div className="flex flex-wrap gap-2 mb-4">
-                          <Badge
+                          {/* <Badge
                             variant="secondary"
                             className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                           >
                             GPA: {item.gpa}
-                          </Badge>
+                          </Badge> */}
                         </div>
                       </div>
                     </CardContent>
