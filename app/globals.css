@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors - preloaded */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 271.4 91.7% 65.1%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 271.4 91.7% 65.1%;
+    --radius: 0.5rem;
+
+    /* Theme transition optimization */
+    --theme-transition-duration: 150ms;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 271.4 91.7% 65.1%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 271.4 91.7% 65.1%;
+  }
+}
+
+@layer base {
+
+  html {
+    font-size: 16px;
+
+    @media (min-width: 1280px) {
+      font-size: 12px;
+    }
+
+    @media (min-width: 1536px) {
+      font-size: 16px;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color var(--theme-transition-duration) ease-out, color var(--theme-transition-duration) ease-out;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Instant theme switching optimizations */
+  .theme-instant-switch,
+  .theme-instant-switch * {
+    transition: none !important;
+    animation-duration: 0ms !important;
+  }
+
+  /* Preloaded theme styles for instant switching */
+  .theme-preload {
+    contain: style;
+    will-change: background-color, color, border-color;
+  }
+
+  /* Critical path optimization */
+  .theme-critical {
+    transition: background-color var(--theme-transition-duration) ease-out, color var(--theme-transition-duration) ease-out, border-color var(--theme-transition-duration) ease-out;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    :root {
+      --theme-transition-duration: 100ms;
+    }
+
+    * {
+      touch-action: manipulation;
+    }
+
+    /* Faster transitions on mobile for instant feel */
+    body {
+      transition: background-color 100ms ease-out, color 100ms ease-out;
+    }
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --theme-transition-duration: 0ms;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+
+  /* Instant theme switching utilities */
+  .theme-instant {
+    transition: none !important;
+  }
+
+  .theme-preload-optimized {
+    contain: style layout;
+    will-change: background-color, color, border-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  .theme-transition-optimized {
+    transition: background-color var(--theme-transition-duration) ease-out, color var(--theme-transition-duration) ease-out, border-color var(--theme-transition-duration) ease-out, box-shadow var(--theme-transition-duration) ease-out;
+  }
+
+  /* Performance optimized theme classes */
+  .gpu-theme-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: background-color, color;
+  }
+}
